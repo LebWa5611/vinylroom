@@ -26,6 +26,15 @@ function vinyl_room_enqueue_assets() {
         '1.0.0', 
         true 
     );
+
+    // Подключаем скомпилированный скрипт хедера отдельно
+    wp_enqueue_script( 
+        'vinyl-room-header', 
+        get_template_directory_uri() . '/dist/js/header.min.js', 
+        array( 'jquery' ), 
+        '1.0.0', 
+        true 
+    );
 }
 add_action( 'wp_enqueue_scripts', 'vinyl_room_enqueue_assets' );
 

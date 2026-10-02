@@ -1,11 +1,224 @@
 .site-header {
-    background-color: #790505;
-    color: #920a0a;
-    padding: 20px 0;
-    border-bottom: 3px solid #ff0055; // Яркая розовая полоска для заметности
+    position: relative;
+    z-index: 100;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: #0b0b0b;
+    color: #fff;
+    width: 100%;
+    border-bottom: 1px solid #222224;
 
-    h1 {
-        font-size: 24px;
+    &__container.container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__logo {
+        width: 150px;
+        flex-shrink: 0;
+
+        a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        img {
+            width: 100%;    
+            height: auto;
+            display: block;
+        }
+    }
+}
+
+// Десктопное меню
+.site-nav--desktop {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 32px;
+
+    .site-nav__list {
+        display: flex;
+        gap: 32px;
+        list-style: none;
         margin: 0;
+        padding: 0;
+
+        a {
+            color: #888;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
+// Блок лупы (скрыт на мобилках)
+.site-header__actions {
+    display: flex;
+    align-items: center;
+
+    .search-toggle-btn {
+        background: none;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
+// Кнопка бургера
+.burger-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    padding: 0;
+
+    .burger-line {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+    }
+
+    @media (max-width: 768px) {
+        display: flex;
+    }
+}
+
+// Мобильное меню (полноэкранное)
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    background-color: #0b0b0b;
+    z-index: 99999; // Ставим максимальный приоритет поверх всего
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+
+    &.is-open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        // Добавляем отступ сверху на случай появления админ-бара WordPress
+        padding: 30px 24px 30px 24px; 
+        box-sizing: border-box;
+
+        @media screen and (max-width: 782px) {
+            // Если в WordPress включена верхняя панель администратора на мобильных
+            padding-top: 50px; 
+        }
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 60px;
+        flex-shrink: 0;
+    }
+
+    &__close {
+        background: none;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        padding: 10px; // Увеличиваем зону клика
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__footer {
+        font-size: 12px;
+        line-height: 1.5;
+        color: #888;
+        border-top: 1px solid #222224;
+        padding-top: 20px;
+        flex-shrink: 0;
+
+        p {
+            margin: 0 0 8px 0;
+            color: #fff;
+        }
+
+        .mobile-menu__hours {
+            color: #888;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+        }
+    }
+}
+
+.mobile-nav {
+    margin: auto 0; // Центрируем навигацию по вертикали между шапкой и футером
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+
+        a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: #888;
+            }
+        }
+    }
+}
+
+// Адаптив отступов контейнера
+@media (max-width: 768px) {
+    .container {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
     }
 }
