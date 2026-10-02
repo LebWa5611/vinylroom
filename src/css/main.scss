@@ -1,0 +1,20 @@
+/**
+ * Global base styles
+ *
+ * Reset + shared utilities. Enqueue once on all pages.
+ * Output: dist/css/main.min.css
+ *
+ * @package Agency_Catalog
+ */
+
+// Базовые стили
+@use 'base/reset';
+@use 'base/defaults';
+@use 'base/container'; // Здесь теперь сидит твой .container
+
+// Компоненты сайта 
+@use 'components/header';
+@use 'components/footer';
+
+// Секции главной страницы (Home)
+@use 'home/hero'; // Подключаем стили нашей Hero-секции

@@ -1,0 +1,22 @@
+/**
+ * Default Utility Classes
+ *
+ * Shared utilities compiled once via main.scss → dist/css/main.min.css
+ * (not auto-imported into every SCSS entry).
+ *
+ * @package Agency_Catalog
+ */
+
+@use 'sass:color';
+
+// Container utility class
+.container {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+// Add more standard utility classes here as needed
+
+

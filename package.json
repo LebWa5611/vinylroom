@@ -1,0 +1,45 @@
+{
+  "name": "agencyCatalog-assets",
+  "version": "2.0.0",
+  "description": "Auto-discovering build-only pipeline for WordPress theme assets (SCSS, JS, images).",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "build": "node tools/scripts/build.mjs",
+    "watch": "node tools/scripts/watch.mjs",
+    "dev": "npm run watch",
+    "clean": "node tools/scripts/clean.mjs",
+    "images": "node tools/scripts/images.mjs",
+    "build:all": "npm run clean && npm run build",
+    "test": "node --test --test-reporter=spec tools/test/*.test.mjs",
+    "benchmark": "node tools/scripts/benchmark.mjs",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "eslint --config tools/eslint.config.mjs .",
+    "lint:css": "stylelint --config tools/stylelint.config.mjs \"src/css/**/*.scss\"",
+    "lint:fix": "eslint --config tools/eslint.config.mjs --fix . && stylelint --config tools/stylelint.config.mjs --fix \"src/css/**/*.scss\"",
+    "ci": "npm run lint && npm run test && npm run build"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "autoprefixer": "^10.5.4",
+    "chokidar": "^5.0.0",
+    "cssnano": "^8.0.5",
+    "eslint": "^10.0.1",
+    "globals": "^17.11.0",
+    "postcss": "^8.5.26",
+    "postcss-scss": "^4.0.9",
+    "sass": "^1.102.0",
+    "sharp": "^0.35.3",
+    "stylelint": "^17.14.1",
+    "stylelint-config-standard-scss": "^17.0.0",
+    "svgo": "^4.0.2",
+    "vite": "^8.2.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
