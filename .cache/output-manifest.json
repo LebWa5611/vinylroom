@@ -2,7 +2,6 @@
   "version": 1,
   "outputs": [
     "css/404.min.css",
-    "css/components/button.min.css",
     "css/main.min.css",
     "js/header.min.js",
     "js/header.min.js.map",

@@ -7,14 +7,16 @@
  * @package Agency_Catalog
  */
 
-// Базовые стили
+// 1. Сначала ВСЕ модули @use (базовые файлы)
+@use 'base/variables';
+@use 'base/mixins';
 @use 'base/reset';
 @use 'base/defaults';
-@use 'base/container'; // Здесь теперь сидит твой .container
+@use 'base/font-face'; // Подключаем твой новый файл шрифтов
+@use 'base/container';
 
-// Компоненты сайта 
+// 2. Затем компоненты и секции
 @use 'components/header';
 @use 'components/footer';
-
-// Секции главной страницы (Home)
-@use 'home/hero'; // Подключаем стили нашей Hero-секции
+@use 'components/button';
+@use 'home/hero';
