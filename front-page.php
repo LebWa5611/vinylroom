@@ -10,6 +10,9 @@
 
     // Подключаем секцию Editor's Pick
     get_template_part( 'template-parts/EditorPick/editorPick'); 
+
+    // Подключаем секцию Selected for Listening
+    get_template_part( 'template-parts/SelectedListening/Selected' );
     ?>
 </main>
 
