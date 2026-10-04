@@ -5,8 +5,11 @@
     // Подключаем секцию Hero
     get_template_part( 'template-parts/home/hero' ); 
 
-    // Подключаем новую секцию Browse the Collection
+    // Подключаем секцию Browse the Collection
     get_template_part( 'template-parts/BrowseTheCollection/vinylCollection' );
+
+    // Подключаем секцию Editor's Pick
+    get_template_part( 'template-parts/EditorPick/editorPick'); 
     ?>
 </main>
 
