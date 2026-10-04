@@ -18,10 +18,10 @@ function vinyl_room_enqueue_assets() {
         '1.0.0' 
     );
 
-    // Подключаем основной скрипт из папки dist/js/
+    // Подключаем основной скрипт из папки dist/js/ (исправлено на main.min.js)
     wp_enqueue_script( 
         'vinyl-room-script', 
-        get_template_directory_uri() . '/dist/js/main.js', 
+        get_template_directory_uri() . '/dist/js/main.min.js', 
         array(), 
         '1.0.0', 
         true 
