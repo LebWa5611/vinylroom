@@ -13,6 +13,9 @@
 
     // Подключаем секцию Selected for Listening
     get_template_part( 'template-parts/SelectedListening/Selected' );
+
+    // Подключаем секцию Late Night Listening
+    get_template_part( 'template-parts/LateNight/lateNight' );
     ?>
 </main>
 
