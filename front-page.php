@@ -16,6 +16,9 @@
 
     // Подключаем секцию Late Night Listening
     get_template_part( 'template-parts/LateNight/lateNight' );
+
+    // Подключаем секцию Related Records
+    get_template_part('template-parts/related-records/related-records');
     ?>
 </main>
 

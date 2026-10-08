@@ -25,7 +25,7 @@
 
         <div class="browse-collection__grid">
             <!-- Карточка 1 -->
-            <div class="record-card">
+            <a href="<?php echo esc_url( home_url( '/record-detail/' ) ); ?>" class="record-card">
                 <div class="record-card__image-wrap">
                     <img src="<?php echo get_template_directory_uri(); ?>/src/Images/Album Artwork (1).png" alt="Midnight Architecture">
                 </div>
@@ -38,10 +38,10 @@
                     </div>
                     <span class="record-card__price">€34.00</span>
                 </div>
-            </div>
+            </a>
 
             <!-- Карточка 2 -->
-            <div class="record-card">
+            <a href="<?php echo esc_url( home_url( '/record-detail/' ) ); ?>" class="record-card">
                 <div class="record-card__image-wrap">
                     <img src="<?php echo get_template_directory_uri(); ?>/src/Images/Album Artwork (2).png" alt="The Long Way Round">
                 </div>
@@ -54,10 +54,10 @@
                     </div>
                     <span class="record-card__price">€29.00</span>
                 </div>
-            </div>
+            </a>
 
             <!-- Карточка 3 -->
-            <div class="record-card">
+            <a href="<?php echo esc_url( home_url( '/record-detail/' ) ); ?>" class="record-card">
                 <div class="record-card__image-wrap">
                     <img src="<?php echo get_template_directory_uri(); ?>/src/Images/Album Artwork (3).png" alt="Blue Conversations">
                 </div>
@@ -70,10 +70,10 @@
                     </div>
                     <span class="record-card__price">€32.00</span>
                 </div>
-            </div>
+            </a>
 
             <!-- Карточка 4 -->
-            <div class="record-card">
+            <a href="<?php echo esc_url( home_url( '/record-detail/' ) ); ?>" class="record-card">
                 <div class="record-card__image-wrap">
                     <img src="<?php echo get_template_directory_uri(); ?>/src/Images/Album Artwork (4).png" alt="Concrete Garden">
                 </div>
@@ -86,10 +86,10 @@
                     </div>
                     <span class="record-card__price">€36.00</span>
                 </div>
-            </div>
+            </a>
 
             <!-- Карточка 5 -->
-            <div class="record-card">
+            <a href="<?php echo esc_url( home_url( '/record-detail/' ) ); ?>" class="record-card">
                 <div class="record-card__image-wrap">
                     <img src="<?php echo get_template_directory_uri(); ?>/src/Images/Album Artwork (5).png" alt="Borrowed Time">
                 </div>
@@ -102,10 +102,10 @@
                     </div>
                     <span class="record-card__price">€28.00</span>
                 </div>
-            </div>
+            </a>
 
             <!-- Карточка 6 -->
-            <div class="record-card">
+            <a href="<?php echo esc_url( home_url( '/record-detail/' ) ); ?>" class="record-card">
                 <div class="record-card__image-wrap">
                     <img src="<?php echo get_template_directory_uri(); ?>/src/Images/Album Artwork.png" alt="Night Standard">
                 </div>
@@ -118,7 +118,7 @@
                     </div>
                     <span class="record-card__price">€31.00</span>
                 </div>
-            </div>
+            </a>
         </div>
 
         <div class="browse-collection__load-more">

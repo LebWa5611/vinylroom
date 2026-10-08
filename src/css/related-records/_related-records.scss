@@ -1,0 +1,147 @@
+$bg-color: #0C0C0D;
+$surface-color: #141416;
+$text-primary: #F3EFE9;
+$text-secondary: #9A9892;
+$color-accent: #D4FF00;
+$border-color: #222224;
+
+.related-records {
+    background-color: $bg-color;
+    padding: 60px 0 100px;
+    border-top: 1px solid $border-color;
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    &__header {
+        display: flex;
+        align-items: baseline;
+        gap: 16px;
+        margin-bottom: 40px;
+
+        .related-records__number {
+            font-size: 28px;
+            font-weight: 700;
+            color: $color-accent;
+        }
+
+        .related-records__title {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: $text-primary;
+            margin: 0;
+        }
+    }
+
+    // Сетка 3 карточки в ряд
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-bottom: 50px;
+
+        .record-card {
+            background-color: transparent;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-4px);
+            }
+
+            &__image-wrap {
+                width: 100%;
+                aspect-ratio: 1 / 1;
+                background-color: $surface-color;
+                border: 1px solid $border-color;
+                overflow: hidden;
+                margin-bottom: 16px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                }
+            }
+
+            &__content {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            &__title {
+                font-size: 18px;
+                font-weight: 600;
+                color: $text-primary;
+                margin: 0;
+            }
+
+            &__artist {
+                font-size: 14px;
+                color: $text-secondary;
+                margin: 0 0 8px 0;
+            }
+
+            &__meta {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                font-size: 11px;
+                letter-spacing: 1px;
+                color: $text-secondary;
+                margin-bottom: 8px;
+            }
+
+            &__price {
+                font-size: 15px;
+                font-weight: 600;
+                color: $color-accent;
+            }
+        }
+    }
+
+    // Кнопка по центру
+    &__action {
+        display: flex;
+        justify-content: center;
+
+        .btn-outline-wide {
+            display: block;
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            background: transparent;
+            border: 1px solid $border-color;
+            color: $text-primary;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            padding: 18px 0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+
+            &:hover {
+                border-color: $color-accent;
+                color: $color-accent;
+            }
+        }
+    }
+}
+
+// Адаптив для мобильных устройств
+@media screen and (max-width: 900px) {
+    .related-records {
+        &__grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+    }
+}

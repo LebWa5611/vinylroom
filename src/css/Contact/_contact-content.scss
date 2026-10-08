@@ -1,0 +1,232 @@
+$bg-color: #0C0C0D;
+$surface-color: #141416;
+$text-primary: #F3EFE9;
+$text-secondary: #9A9892;
+$color-accent: #D4FF00;
+$border-color: #222224;
+$error-color: #EF4444;
+
+.contact-page {
+    background-color: $bg-color;
+    color: $text-primary;
+    padding: 60px 0 100px;
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    // Герой-секция
+    .contact-hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        padding-bottom: 80px;
+        border-bottom: 1px solid $border-color;
+        margin-bottom: 80px;
+
+        &__title {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin: 0 0 20px 0;
+            letter-spacing: -1px;
+        }
+
+        &__desc {
+            font-size: 16px;
+            line-height: 1.6;
+            color: $text-secondary;
+            margin: 0;
+        }
+
+        &__image {
+            width: 100%;
+            aspect-ratio: 498 / 340;
+            background: $surface-color;
+            border: 1px solid $border-color;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+        }
+    }
+
+    // Основная сетка контактов и формы
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        padding-bottom: 80px;
+        border-bottom: 1px solid $border-color;
+        margin-bottom: 80px;
+    }
+
+    // Левая колонка (Инфо)
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        .contact-label {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            color: $color-accent;
+            display: block;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .contact-list, .hours-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            li {
+                display: flex;
+                justify-content: space-between;
+                font-size: 15px;
+                color: $text-primary;
+
+                span:first-child {
+                    color: $text-secondary;
+                }
+
+                a {
+                    color: $text-primary;
+                    text-decoration: none;
+                    transition: color 0.3s ease;
+
+                    &:hover {
+                        color: $color-accent;
+                    }
+                }
+
+                .closed {
+                    color: $text-secondary;
+                }
+            }
+        }
+
+        .contact-address {
+            font-size: 15px;
+            line-height: 1.6;
+            color: $text-primary;
+            margin: 0;
+            font-style: normal;
+        }
+    }
+
+    // Правая колонка (Форма)
+    .contact-form-wrap {
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+
+                label {
+                    font-size: 11px;
+                    letter-spacing: 1px;
+                    color: $text-secondary;
+                }
+
+                input, textarea {
+                    background-color: $surface-color;
+                    border: 1px solid $border-color;
+                    color: $text-primary;
+                    padding: 16px;
+                    font-size: 15px;
+                    font-family: inherit;
+                    outline: none;
+                    transition: border-color 0.3s ease;
+
+                    &:focus {
+                        border-color: $color-accent;
+                    }
+                }
+
+                // Пример состояния ошибки из макета
+                input#subject {
+                    border-color: $error-color;
+                }
+
+                .form-error {
+                    font-size: 12px;
+                    color: $error-color;
+                }
+            }
+
+            .btn-accent {
+                background-color: $color-accent;
+                color: $bg-color;
+                font-weight: 700;
+                font-size: 13px;
+                letter-spacing: 1.5px;
+                padding: 18px;
+                text-align: center;
+                border: none;
+                cursor: pointer;
+                transition: opacity 0.3s ease;
+                margin-top: 10px;
+
+                &:hover {
+                    opacity: 0.9;
+                }
+            }
+        }
+    }
+
+    // Нижний баннер
+    .editorial-banner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+
+        h2 {
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin: 0;
+        }
+
+        &__image {
+            width: 100%;
+            aspect-ratio: 520 / 300;
+            background: $surface-color;
+            border: 1px solid $border-color;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+        }
+    }
+}
+
+// Адаптив под мобилки
+@media screen and (max-width: 900px) {
+    .contact-page {
+        .contact-hero, .contact-grid, .editorial-banner {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+    }
+}

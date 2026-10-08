@@ -12,7 +12,7 @@
 @use 'base/mixins';
 @use 'base/reset';
 @use 'base/defaults';
-@use 'base/font-face'; // Подключаем твой новый файл шрифтов
+@use 'base/font-face';
 @use 'base/container';
 
 // 2. Затем компоненты и секции
@@ -20,8 +20,14 @@
 @use 'components/footer';
 @use 'components/button';
 @use 'home/hero';
-@use 'BrowseTheCollection/vinylCollection';
+@use 'BrowseTheCollection/vinylcollection';
 @use 'EditorPick/editorPick';
 @use 'SelectedListening/selected';
 @use 'LateNight/lateNight';
-@use 'components/footer';
+
+// 3. Record Page (Детальная страница)
+@use 'record-detail/record-detail';
+
+@use 'related-records/related-records';
+
+@use 'Contact/contact-content';

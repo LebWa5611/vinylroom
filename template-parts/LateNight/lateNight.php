@@ -16,7 +16,7 @@
 
         <div class="late-night__grid">
             <!-- Card 1 -->
-            <div class="record-card">
+            <a href="<?php echo esc_url( home_url( '/record-detail/' ) ); ?>" class="record-card">
                 <div class="record-card__image">
                     <img src="<?php echo get_template_directory_uri(); ?>/src/Images/Album Artwork (6).png" alt="After Hours in Tokyo">
                 </div>
@@ -29,10 +29,10 @@
                     </div>
                     <div class="record-card__price">€33.00</div>
                 </div>
-            </div>
+            </a>
 
             <!-- Card 2 -->
-            <div class="record-card">
+            <a href="<?php echo esc_url( home_url( '/record-detail/' ) ); ?>" class="record-card">
                 <div class="record-card__image">
                     <img src="<?php echo get_template_directory_uri(); ?>/src/Images/Album Artwork (7).png" alt="Low Light">
                 </div>
@@ -45,10 +45,10 @@
                     </div>
                     <div class="record-card__price">€35.00</div>
                 </div>
-            </div>
+            </a>
 
             <!-- Card 3 -->
-            <div class="record-card">
+            <a href="<?php echo esc_url( home_url( '/record-detail/' ) ); ?>" class="record-card">
                 <div class="record-card__image">
                     <img src="<?php echo get_template_directory_uri(); ?>/src/Images/Album Artwork (8).png" alt="The Quiet Year">
                 </div>
@@ -61,7 +61,7 @@
                     </div>
                     <div class="record-card__price">€30.00</div>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </section>

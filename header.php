@@ -19,9 +19,9 @@
         <nav class="site-nav site-nav--desktop">
             <ul class="site-nav__list">
                 <li><a href="<?php echo esc_url(home_url('/')); ?>">HOME</a></li>
-                <li><a href="#records">RECORDS</a></li>
-                <li><a href="#about">ABOUT</a></li>
-                <li><a href="#contact">CONTACT</a></li>
+                <li><a href="<?php echo esc_url( home_url( '/record-detail/' ) ); ?>">RECORDS</a></li>
+                <li><a href="<?php echo esc_url( home_url('/') ); ?>">ABOUT</a></li>
+                <li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">CONTACT</a></li>
             </ul>
         </nav>
 

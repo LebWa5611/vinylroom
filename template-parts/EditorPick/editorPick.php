@@ -36,7 +36,7 @@
                 </p>
 
                 <div class="editor-pick__action">
-                    <a href="#" class="btn-view-record">View Record</a>
+                    <a href="<?php echo esc_url( home_url( '/record-detail/' ) ); ?>" class="btn-view-record">View Record</a>
                 </div>
             </div>
         </div>
