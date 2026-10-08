@@ -15,19 +15,24 @@
 @use 'base/font-face';
 @use 'base/container';
 
-// 2. Затем компоненты и секции
+// 2. Затем общие компоненты
 @use 'components/header';
 @use 'components/footer';
 @use 'components/button';
+
+// 3. Секции главной страницы (папка home)
 @use 'home/hero';
-@use 'BrowseTheCollection/vinylcollection';
-@use 'EditorPick/editorPick';
-@use 'SelectedListening/selected';
-@use 'LateNight/lateNight';
+@use 'home/vinylCollection';
+@use 'home/editorPick';
+@use 'home/selected';
+@use 'home/lateNight';
 
-// 3. Record Page (Детальная страница)
-@use 'record-detail/record-detail';
+// 4. Секции страницы записи (папка record-detail)
+@use 'record-detail/voltage-hero';
+@use 'record-detail/voltage-description';
+@use 'record-detail/voltage-tracklist';// Если файл лежит в src/css/record-detail/_record-detail.scss
+@use 'record-detail/related-records'; // Если файл лежит в src/css/record-detail/_record-detail.scss
 
-@use 'related-records/related-records';
-
-@use 'Contact/contact-content';
+@use 'contact/contact-hero';
+@use 'contact/contact-main';
+@use 'contact/contact-banner';

@@ -1,0 +1,42 @@
+.record-detail {
+    &__tracklist {
+        max-width: 800px;
+
+        .tracklist-title {
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            color: $text-secondary;
+            margin-bottom: 24px;
+        }
+
+        .tracklist-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            .track-item {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 16px 0;
+                border-bottom: 1px solid $border-color;
+                font-size: 15px;
+
+                .track-number {
+                    color: $text-secondary;
+                    width: 40px;
+                }
+
+                .track-name {
+                    flex-grow: 1;
+                    color: $text-primary;
+                    font-weight: 500;
+                }
+
+                .track-time {
+                    color: $text-secondary;
+                }
+            }
+        }
+    }
+}

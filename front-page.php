@@ -1,24 +1,27 @@
-<?php get_header(); ?>
+<?php 
+/**
+ * Template Name: Front Page
+ */
+
+get_header(); 
+?>
 
 <main class="main-content">
     <?php
-    // Подключаем секцию Hero
+    // 1. Секция Hero
     get_template_part( 'template-parts/home/hero' ); 
 
-    // Подключаем секцию Browse the Collection
-    get_template_part( 'template-parts/BrowseTheCollection/vinylCollection' );
+    // 2. Секция Browse the Collection
+    get_template_part( 'template-parts/home/vinylCollection' );
 
-    // Подключаем секцию Editor's Pick
-    get_template_part( 'template-parts/EditorPick/editorPick'); 
+    // 3. Секция Editor's Pick
+    get_template_part( 'template-parts/home/editorPick' ); 
 
-    // Подключаем секцию Selected for Listening
-    get_template_part( 'template-parts/SelectedListening/Selected' );
+    // 4. Секция Selected for Listening
+    get_template_part( 'template-parts/home/selected' );
 
-    // Подключаем секцию Late Night Listening
-    get_template_part( 'template-parts/LateNight/lateNight' );
-
-    // Подключаем секцию Related Records
-    get_template_part('template-parts/related-records/related-records');
+    // 5. Секция Late Night Listening
+    get_template_part( 'template-parts/home/lateNight' );
     ?>
 </main>
 

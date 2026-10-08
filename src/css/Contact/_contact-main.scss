@@ -1,64 +1,4 @@
-$bg-color: #0C0C0D;
-$surface-color: #141416;
-$text-primary: #F3EFE9;
-$text-secondary: #9A9892;
-$color-accent: #D4FF00;
-$border-color: #222224;
-$error-color: #EF4444;
-
 .contact-page {
-    background-color: $bg-color;
-    color: $text-primary;
-    padding: 60px 0 100px;
-
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-
-    // Герой-секция
-    .contact-hero {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
-        align-items: center;
-        padding-bottom: 80px;
-        border-bottom: 1px solid $border-color;
-        margin-bottom: 80px;
-
-        &__title {
-            font-size: 48px;
-            font-weight: 700;
-            line-height: 1.1;
-            margin: 0 0 20px 0;
-            letter-spacing: -1px;
-        }
-
-        &__desc {
-            font-size: 16px;
-            line-height: 1.6;
-            color: $text-secondary;
-            margin: 0;
-        }
-
-        &__image {
-            width: 100%;
-            aspect-ratio: 498 / 340;
-            background: $surface-color;
-            border: 1px solid $border-color;
-            overflow: hidden;
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                display: block;
-            }
-        }
-    }
-
-    // Основная сетка контактов и формы
     .contact-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -68,7 +8,6 @@ $error-color: #EF4444;
         margin-bottom: 80px;
     }
 
-    // Левая колонка (Инфо)
     .contact-info {
         display: flex;
         flex-direction: column;
@@ -126,7 +65,6 @@ $error-color: #EF4444;
         }
     }
 
-    // Правая колонка (Форма)
     .contact-form-wrap {
         .contact-form {
             display: flex;
@@ -159,7 +97,6 @@ $error-color: #EF4444;
                     }
                 }
 
-                // Пример состояния ошибки из макета
                 input#subject {
                     border-color: $error-color;
                 }
@@ -187,46 +124,6 @@ $error-color: #EF4444;
                     opacity: 0.9;
                 }
             }
-        }
-    }
-
-    // Нижний баннер
-    .editorial-banner {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
-        align-items: center;
-
-        h2 {
-            font-size: 42px;
-            font-weight: 700;
-            line-height: 1.1;
-            margin: 0;
-        }
-
-        &__image {
-            width: 100%;
-            aspect-ratio: 520 / 300;
-            background: $surface-color;
-            border: 1px solid $border-color;
-            overflow: hidden;
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                display: block;
-            }
-        }
-    }
-}
-
-// Адаптив под мобилки
-@media screen and (max-width: 900px) {
-    .contact-page {
-        .contact-hero, .contact-grid, .editorial-banner {
-            grid-template-columns: 1fr;
-            gap: 40px;
         }
     }
 }

@@ -1,18 +1,4 @@
-<section class="contact-page">
-    <div class="container">
-        
-        <!-- Герой-секция контактов -->
-        <div class="contact-hero">
-            <div class="contact-hero__text">
-                <h1 class="contact-hero__title">TALK MUSIC WITH US.</h1>
-                <p class="contact-hero__desc">Whether you're hunting for a specific pressing, want to know what's arriving next, or just want to talk records — we're here.</p>
-            </div>
-            <div class="contact-hero__image">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/src/Images/Hero Visual Frame (1).png'); ?>" alt="Sound Spectrum Interior">
-            </div>
-        </div>
-
-        <!-- Основная сетка: Контактная инфо слева + Форма справа -->
+<!-- Основная сетка: Контактная инфо слева + Форма справа -->
         <div class="contact-grid">
             
             <!-- Левая колонка: Данные и часы работы -->
@@ -77,16 +63,3 @@
             </div>
 
         </div>
-
-        <!-- Нижний баннер: EVERY RECORD TELLS A STORY -->
-        <div class="editorial-banner">
-            <div class="editorial-banner__text">
-                <h2>EVERY RECORD TELLS A STORY.</h2>
-            </div>
-            <div class="editorial-banner__image">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/src/Images/Crates Interior Photo.png'); ?>" alt="Crates Interior Photo">
-            </div>
-        </div>
-
-    </div>
-</section>
