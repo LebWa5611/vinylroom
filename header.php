@@ -17,12 +17,14 @@
 
         <!-- Десктопное меню -->
         <nav class="site-nav site-nav--desktop">
-            <ul class="site-nav__list">
-                <li><a href="<?php echo esc_url(home_url('/')); ?>">HOME</a></li>
-                <li><a href="<?php echo esc_url( home_url( '/record-detail/' ) ); ?>">RECORDS</a></li>
-                <li><a href="<?php echo esc_url( home_url('/') ); ?>">ABOUT</a></li>
-                <li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">CONTACT</a></li>
-            </ul>
+            <?php
+            wp_nav_menu( array(
+                'theme_location' => 'primary-desktop',
+                'container'      => false,
+                'menu_class'     => 'site-nav__list',
+                'fallback_cb'    => false, // Если меню не создано в админке, ничего не выводить ломающего верстку
+            ) );
+            ?>
         </nav>
 
         <!-- Блок действий для десктопа (лупа) -->
@@ -61,12 +63,14 @@
             </div>
 
             <nav class="mobile-nav">
-                <ul class="mobile-nav__list">
-                    <li><a href="#catalog">CATALOG</a></li>
-                    <li><a href="#genres">GENRES</a></li>
-                    <li><a href="#new-arrivals">NEW ARRIVALS</a></li>
-                    <li><a href="#about">ABOUT</a></li>
-                </ul>
+                <?php
+                wp_nav_menu( array(
+                    'theme_location' => 'primary-mobile',
+                    'container'      => false,
+                    'menu_class'     => 'mobile-nav__list',
+                    'fallback_cb'    => false,
+                ) );
+                ?>
             </nav>
 
             <!-- Футер внутри мобильного меню из фигмы -->

@@ -2,15 +2,23 @@
 /**
  * Template part for displaying the Browse the Collection section
  */
+
+// Получаем группу полей из ACF
+$collection = get_field('vinyl_collection');
+
+if ( $collection ):
+    $section_title = isset($collection['browse_title']) ? $collection['browse_title'] : 'Browse the Collection';
+    $records       = isset($collection['records_list']) ? $collection['records_list'] : array();
 ?>
 
 <section class="browse-collection">
     <div class="container">
         <div class="browse-collection__header">
             <span class="browse-collection__number">01</span>
-            <h2 class="browse-collection__title">Browse the Collection</h2>
+            <h2 class="browse-collection__title"><?php echo esc_html( $section_title ); ?></h2>
         </div>
 
+        <!-- Пока оставляем статичными для будущей логики поиска и фильтрации -->
         <div class="browse-collection__search-wrap">
             <input type="text" class="browse-collection__search" placeholder="Search by album or artist...">
         </div>
@@ -24,101 +32,55 @@
         </div>
 
         <div class="browse-collection__grid">
-            <!-- Карточка 1 -->
-            <a href="<?php echo esc_url( home_url( '/record-detail/' ) ); ?>" class="record-card">
-                <div class="record-card__image-wrap">
-                    <img src="<?php echo get_template_directory_uri(); ?>/src/Images/Album Artwork (1).png" alt="Midnight Architecture">
-                </div>
-                <div class="record-card__content">
-                    <h3 class="record-card__title">Midnight Architecture</h3>
-                    <p class="record-card__artist">Koda Sato</p>
-                    <div class="record-card__meta">
-                        <span class="tag">Electronic</span>
-                        <span class="year">2024</span>
+            <?php 
+            if ( ! empty( $records ) ): 
+                foreach ( $records as $record ):
+                    // Извлекаем поля карточки
+                    $image  = isset($record['record_image']) ? $record['record_image'] : '';
+                    $title  = isset($record['record_title']) ? $record['record_title'] : '';
+                    $artist = isset($record['record_artist']) ? $record['record_artist'] : '';
+                    $genre  = isset($record['record_genre']) ? $record['record_genre'] : '';
+                    $year   = isset($record['record_year']) ? $record['record_year'] : '';
+                    $price  = isset($record['record_price']) ? $record['record_price'] : '';
+                    $link   = isset($record['record_link']) ? $record['record_link'] : home_url( '/record-detail/' );
+            ?>
+                <a href="<?php echo esc_url( $link ); ?>" class="record-card">
+                    <div class="record-card__image-wrap">
+                        <?php if ( $image ): ?>
+                            <!-- Если в ACF выбрано возвращать массив изображения, берем URL, если ID — wp_get_attachment_image_url -->
+                            <?php 
+                                $img_url = is_array($image) ? $image['url'] : wp_get_attachment_image_url($image, 'full'); 
+                            ?>
+                            <img src="<?php echo esc_url( $img_url ); ?>" alt="<?php echo esc_attr( $title ); ?>">
+                        <?php endif; ?>
                     </div>
-                    <span class="record-card__price">€34.00</span>
-                </div>
-            </a>
+                    <div class="record-card__content">
+                        <?php if ( $title ): ?>
+                            <h3 class="record-card__title"><?php echo esc_html( $title ); ?></h3>
+                        <?php endif; ?>
 
-            <!-- Карточка 2 -->
-            <a href="<?php echo esc_url( home_url( '/record-detail/' ) ); ?>" class="record-card">
-                <div class="record-card__image-wrap">
-                    <img src="<?php echo get_template_directory_uri(); ?>/src/Images/Album Artwork (2).png" alt="The Long Way Round">
-                </div>
-                <div class="record-card__content">
-                    <h3 class="record-card__title">The Long Way Round</h3>
-                    <p class="record-card__artist">The Wrecking Light</p>
-                    <div class="record-card__meta">
-                        <span class="tag">Rock</span>
-                        <span class="year">2023</span>
-                    </div>
-                    <span class="record-card__price">€29.00</span>
-                </div>
-            </a>
+                        <?php if ( $artist ): ?>
+                            <p class="record-card__artist"><?php echo esc_html( $artist ); ?></p>
+                        <?php endif; ?>
 
-            <!-- Карточка 3 -->
-            <a href="<?php echo esc_url( home_url( '/record-detail/' ) ); ?>" class="record-card">
-                <div class="record-card__image-wrap">
-                    <img src="<?php echo get_template_directory_uri(); ?>/src/Images/Album Artwork (3).png" alt="Blue Conversations">
-                </div>
-                <div class="record-card__content">
-                    <h3 class="record-card__title">Blue Conversations</h3>
-                    <p class="record-card__artist">Mara Jennings Trio</p>
-                    <div class="record-card__meta">
-                        <span class="tag">Jazz</span>
-                        <span class="year">2024</span>
-                    </div>
-                    <span class="record-card__price">€32.00</span>
-                </div>
-            </a>
+                        <div class="record-card__meta">
+                            <?php if ( $genre ): ?>
+                                <span class="tag"><?php echo esc_html( $genre ); ?></span>
+                            <?php endif; ?>
+                            <?php if ( $year ): ?>
+                                <span class="year"><?php echo esc_html( $year ); ?></span>
+                            <?php endif; ?>
+                        </div>
 
-            <!-- Карточка 4 -->
-            <a href="<?php echo esc_url( home_url( '/record-detail/' ) ); ?>" class="record-card">
-                <div class="record-card__image-wrap">
-                    <img src="<?php echo get_template_directory_uri(); ?>/src/Images/Album Artwork (4).png" alt="Concrete Garden">
-                </div>
-                <div class="record-card__content">
-                    <h3 class="record-card__title">Concrete Garden</h3>
-                    <p class="record-card__artist">Dusk Protocol</p>
-                    <div class="record-card__meta">
-                        <span class="tag">Electronic</span>
-                        <span class="year">2023</span>
+                        <?php if ( $price ): ?>
+                            <span class="record-card__price"><?php echo esc_html( $price ); ?></span>
+                        <?php endif; ?>
                     </div>
-                    <span class="record-card__price">€36.00</span>
-                </div>
-            </a>
-
-            <!-- Карточка 5 -->
-            <a href="<?php echo esc_url( home_url( '/record-detail/' ) ); ?>" class="record-card">
-                <div class="record-card__image-wrap">
-                    <img src="<?php echo get_template_directory_uri(); ?>/src/Images/Album Artwork (5).png" alt="Borrowed Time">
-                </div>
-                <div class="record-card__content">
-                    <h3 class="record-card__title">Borrowed Time</h3>
-                    <p class="record-card__artist">Samuel Cross</p>
-                    <div class="record-card__meta">
-                        <span class="tag">Rock</span>
-                        <span class="year">2022</span>
-                    </div>
-                    <span class="record-card__price">€28.00</span>
-                </div>
-            </a>
-
-            <!-- Карточка 6 -->
-            <a href="<?php echo esc_url( home_url( '/record-detail/' ) ); ?>" class="record-card">
-                <div class="record-card__image-wrap">
-                    <img src="<?php echo get_template_directory_uri(); ?>/src/Images/Album Artwork.png" alt="Night Standard">
-                </div>
-                <div class="record-card__content">
-                    <h3 class="record-card__title">Night Standard</h3>
-                    <p class="record-card__artist">Aiko Tanaka Quartet</p>
-                    <div class="record-card__meta">
-                        <span class="tag">Jazz</span>
-                        <span class="year">2024</span>
-                    </div>
-                    <span class="record-card__price">€31.00</span>
-                </div>
-            </a>
+                </a>
+            <?php 
+                endforeach; 
+            endif; 
+            ?>
         </div>
 
         <div class="browse-collection__load-more">
@@ -126,3 +88,5 @@
         </div>
     </div>
 </section>
+
+<?php endif; ?>

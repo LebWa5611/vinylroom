@@ -1,10 +1,42 @@
-<!-- Текстовое описание в две колонки -->
+<?php
+/**
+ * Template part for displaying the Voltage Description section
+ */
+
+$description_sec = get_field('description_section');
+
+$col_1 = $description_sec['description_column_1'] ?? '';
+$col_2 = $description_sec['description_column_2'] ?? '';
+$col_3 = $description_sec['description_column_3'] ?? '';
+?>
+
+<?php if ($col_1 || $col_2 || $col_3): ?>
+<section class="record-detail">
+    <div class="container">
+        <!-- Текстовое описание -->
         <div class="record-detail__description">
-            <div class="record-detail__desc-col">
-                <p>A record that refuses to rush. The Wrecking Light's third album is a study in tension and release — layered guitars that build patiently before crashing forward.</p>
-            </div>
-            <div class="record-detail__desc-col">
-                <p>Slow Voltage opens with the deceptively quiet title track, a six-minute meditation on restlessness that sets the tone for all flowers that follows. From there, the album moves through ten tracks of carefully constructed guitar rock — each song a study in dynamics, where whispered verses give way to walls of sound.</p>
-                <p>The production is deliberately warm, favoring analog tape and room microphones over digital precision. Recorded over three months at a converted warehouse in Bristol, the album captures the sound of a band playing together in each other's energy.</p>
-            </div>
+            <?php if ($col_1): ?>
+                <div class="record-detail__desc-col">
+                    <?php echo wp_kses_post($col_1); ?>
+                </div>
+            <?php endif; ?>
+            
+            <?php if ($col_2 || $col_3): ?>
+                <div class="record-detail__desc-col">
+                    <?php if ($col_2): ?>
+                        <div class="record-detail__text-block">
+                            <?php echo wp_kses_post($col_2); ?>
+                        </div>
+                    <?php endif; ?>
+                    
+                    <?php if ($col_3): ?>
+                        <div class="record-detail__text-block" style="margin-top: 24px;">
+                            <?php echo wp_kses_post($col_3); ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
         </div>
+    </div>
+</section>
+<?php endif; ?>

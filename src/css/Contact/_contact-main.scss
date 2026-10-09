@@ -1,11 +1,23 @@
-.contact-page {
+@use '../base/variables' as *;
+
+.contact-main-section {
+    background-color: $bg-color;
+    color: $text-primary;
+    padding: 64px 0 128px 0; // Точные отступы секции сверху и снизу по Figma
+
+    .container {
+        max-width: 1440px; // Ширина макета
+        margin: 0 auto;
+        padding: 0 96px;   // Отступы слева и справа по 96px как на макете
+    }
+
     .contact-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 80px;
-        padding-bottom: 80px;
+        gap: 32px;         // Точный отступ между колонками из Figma (32px)
+        padding-bottom: 60px;
         border-bottom: 1px solid $border-color;
-        margin-bottom: 80px;
+        margin-bottom: 0;
     }
 
     .contact-info {
@@ -22,7 +34,42 @@
             font-weight: 600;
         }
 
-        .contact-list, .hours-list {
+        /* Список контактов: EMAIL и PHONE друг под другом */
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            li {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                font-size: 15px;
+
+                span:first-child {
+                    font-size: 11px;
+                    letter-spacing: 1px;
+                    color: $text-secondary;
+                }
+
+                a {
+                    color: $text-primary;
+                    text-decoration: none;
+                    font-size: 15px;
+                    transition: color 0.3s ease;
+
+                    &:hover {
+                        color: $color-accent;
+                    }
+                }
+            }
+        }
+
+        /* Часы работы */
+        .hours-list {
             list-style: none;
             padding: 0;
             margin: 0;
@@ -40,28 +87,28 @@
                     color: $text-secondary;
                 }
 
-                a {
-                    color: $text-primary;
-                    text-decoration: none;
-                    transition: color 0.3s ease;
-
-                    &:hover {
-                        color: $color-accent;
-                    }
-                }
-
                 .closed {
-                    color: $text-secondary;
+                    color: $color-accent;
+                    font-weight: 600;
                 }
             }
         }
 
-        .contact-address {
+       .contact-address {
             font-size: 15px;
             line-height: 1.6;
             color: $text-primary;
             margin: 0;
             font-style: normal;
+
+            .city-name {
+                display: block;
+                font-size: 11px;
+                letter-spacing: 1px;
+                color: $text-secondary; // Делаем серым, как EMAIL/PHONE вверху
+                margin-bottom: 4px;     // Аккуратный небольшой отступ до улицы
+                font-weight: 600;
+            }
         }
     }
 

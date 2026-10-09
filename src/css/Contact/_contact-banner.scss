@@ -1,4 +1,17 @@
-.contact-page {
+@use '../base/variables' as *;
+
+.contact-banner-section {
+   background-color: $bg-color;
+    color: $text-primary;
+    padding-top: 64px;   // Точно как в Figma
+    padding-bottom: 86px;// Точно как в Figma
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
     .editorial-banner {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -30,8 +43,9 @@
 }
 
 @media screen and (max-width: 900px) {
-    .contact-page {
-        .contact-hero, .contact-grid, .editorial-banner {
+    .contact-banner-section,
+    .contact-main-section {
+        .editorial-banner, .contact-grid {
             grid-template-columns: 1fr;
             gap: 40px;
         }

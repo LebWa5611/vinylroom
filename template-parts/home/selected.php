@@ -2,26 +2,50 @@
 /**
  * Template part for displaying the Brand Philosophy / Selected for Listening section
  */
+
+// Получаем группу полей из ACF
+$listening = get_field('selected_listening_section');
+
+// Проверяем, заполнена ли группа
+if ( $listening ):
+    $title      = isset($listening['title']) ? $listening['title'] : '';
+    $text_first = isset($listening['text_first']) ? $listening['text_first'] : '';
+    $text_second= isset($listening['text_second']) ? $listening['text_second'] : '';
+    $image      = isset($listening['image']) ? $listening['image'] : '';
 ?>
 
 <section class="selected-listening">
     <div class="container">
         <div class="selected-listening__grid">
             <div class="selected-listening__title-wrap">
-                <h2 class="selected-listening__title">SELECTED FOR LISTENING. NOT ALGORITHMS.</h2>
+                <?php if ( $title ): ?>
+                    <h2 class="selected-listening__title"><?php echo esc_html( $title ); ?></h2>
+                <?php endif; ?>
             </div>
             <div class="selected-listening__text-wrap">
-                <p class="selected-listening__text">
-                    Every record in our collection is chosen by hand. No trending charts, no sponsored placements, no algorithmic tracking loops.
-                </p>
-                <p class="selected-listening__text">
-                    Just enduring music worth your dedicated time, selected by real people who spend theirs listening.
-                </p>
+                <?php if ( $text_first ): ?>
+                    <p class="selected-listening__text">
+                        <?php echo esc_html( $text_first ); ?>
+                    </p>
+                <?php endif; ?>
+                
+                <?php if ( $text_second ): ?>
+                    <p class="selected-listening__text">
+                        <?php echo esc_html( $text_second ); ?>
+                    </p>
+                <?php endif; ?>
             </div>
         </div>
 
-        <div class="selected-listening__image-wrap">
-            <img src="<?php echo get_template_directory_uri(); ?>/src/Images/Atmospheric Interior Photo.png" alt="Vinyl store interior">
-        </div>
+        <?php if ( $image ): ?>
+            <div class="selected-listening__image-wrap">
+                <?php 
+                    $img_url = is_array($image) ? $image['url'] : wp_get_attachment_image_url($image, 'full'); 
+                ?>
+                <img src="<?php echo esc_url( $img_url ); ?>" alt="Vinyl store interior">
+            </div>
+        <?php endif; ?>
     </div>
 </section>
+
+<?php endif; ?>

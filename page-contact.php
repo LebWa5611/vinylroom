@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * Template Name: Contact Page
  * Description: Шаблон для страницы контактов

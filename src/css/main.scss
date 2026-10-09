@@ -21,18 +21,18 @@
 @use 'components/button';
 
 // 3. Секции главной страницы (папка home)
-@use 'home/hero';
+@use 'home/hero' as home-hero;
 @use 'home/vinylCollection';
 @use 'home/editorPick';
 @use 'home/selected';
 @use 'home/lateNight';
 
 // 4. Секции страницы записи (папка record-detail)
-@use 'record-detail/voltage-hero';
+@use 'record-detail/voltage-hero' as record-detail-hero;
 @use 'record-detail/voltage-description';
 @use 'record-detail/voltage-tracklist';// Если файл лежит в src/css/record-detail/_record-detail.scss
 @use 'record-detail/related-records'; // Если файл лежит в src/css/record-detail/_record-detail.scss
 
-@use 'contact/contact-hero';
+@use 'contact/contact-hero' as Contact-hero;
 @use 'contact/contact-main';
 @use 'contact/contact-banner';

@@ -1,6 +1,10 @@
+@use '../base/variables' as *;
+
 .record-detail {
     &__tracklist {
         max-width: 800px;
+        margin: 0 auto;
+        padding-bottom: 80px;
 
         .tracklist-title {
             font-size: 14px;

@@ -20,22 +20,26 @@
             <div class="footer__col-links">
                 <div class="footer__menu-col">
                     <h4 class="footer__menu-title">BROWSE</h4>
-                    <ul class="footer__menu-list">
-                        <li><a href="<?php echo home_url('/catalog'); ?>">Catalog</a></li>
-                        <li><a href="<?php echo home_url('/new-arrivals'); ?>">New Arrivals</a></li>
-                        <li><a href="<?php echo home_url('/genres'); ?>">Genres</a></li>
-                        <li><a href="<?php echo home_url('/labels'); ?>">Labels</a></li>
-                    </ul>
+                    <?php
+                    wp_nav_menu( array(
+                        'theme_location' => 'footer-browse',
+                        'container'      => false,
+                        'menu_class'     => 'footer__menu-list',
+                        'fallback_cb'    => false,
+                    ) );
+                    ?>
                 </div>
 
                 <div class="footer__menu-col">
                     <h4 class="footer__menu-title">INFO</h4>
-                    <ul class="footer__menu-list">
-                        <li><a href="<?php echo home_url('/about'); ?>">About</a></li>
-                        <li><a href="<?php echo home_url('/contact'); ?>">Contact</a></li>
-                        <li><a href="<?php echo home_url('/shipping'); ?>">Shipping</a></li>
-                        <li><a href="<?php echo home_url('/faq'); ?>">FAQ</a></li>
-                    </ul>
+                    <?php
+                    wp_nav_menu( array(
+                        'theme_location' => 'footer-info',
+                        'container'      => false,
+                        'menu_class'     => 'footer__menu-list',
+                        'fallback_cb'    => false,
+                    ) );
+                    ?>
                 </div>
             </div>
         </div>
